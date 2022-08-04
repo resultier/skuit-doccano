@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="css">
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+  
   .v-main{
     background-color: #D6F0F2;
   }

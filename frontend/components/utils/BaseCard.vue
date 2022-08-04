@@ -83,7 +83,7 @@ export default Vue.extend({
   }
   .v-btn{
     background-color: #739BF5 !important;
-    color: white;
+    color: white !important;
     border-radius: 0;
     box-shadow: none;
     font-family: 'Poppins';
