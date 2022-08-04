@@ -1,19 +1,29 @@
 <template>
   <v-app>
-    <the-header />
+    <!-- 
+      <the-header />
+    -->
     <nuxt />
-    <the-footer />
+    <!-- 
+      <the-footer /> 
+    -->
   </v-app>
 </template>
 
 <script>
-import TheFooter from '@/components/layout/TheFooter'
-import TheHeader from '@/components/layout/TheHeader'
+// import TheFooter from '@/components/layout/TheFooter'
+// import TheHeader from '@/components/layout/TheHeader'
 
 export default {
   components: {
-    TheFooter,
-    TheHeader
+    // TheFooter,
+    // TheHeader
   }
 }
 </script>
+
+<style lang="css">
+  .v-main{
+    background-color: #D6F0F2;
+  }
+</style>
