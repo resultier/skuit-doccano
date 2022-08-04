@@ -10,6 +10,7 @@
         <v-alert v-show="showError" v-model="showError" type="error" dismissible>
           {{ $t('errors.invalidUserOrPass') }}
         </v-alert>
+        <!-- 
         <v-text-field
           v-model="username"
           :rules="userNameRules($t('rules.userNameRules'))"
@@ -20,6 +21,19 @@
           autofocus
           @keyup.enter="tryLogin"
         />
+        -->
+        <input 
+          v-model="username"
+          :rules="userNameRules($t('rules.userNameRules'))"
+          autofocus="true"
+          autocomplete="false"
+          type="text" 
+          name="username"
+          class="formLogin--input"
+          placeholder="Username"
+          @keyup.enter="tryLogin"
+        />
+        <!-- 
         <v-text-field
           id="password"
           v-model="password"
@@ -28,6 +42,19 @@
           name="password"
           :prepend-icon="mdiLock"
           type="password"
+          @keyup.enter="tryLogin"
+        />
+        -->
+        <input 
+          id="password"
+          v-model="password"
+          :rules="passwordRules($t('rules.passwordRules'))"
+          autofocus="true"
+          autocomplete="false"
+          type="password" 
+          name="password"
+          class="formLogin--input mt-5"
+          placeholder="Password"
           @keyup.enter="tryLogin"
         />
       </v-form>
@@ -80,3 +107,14 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped>
+.formLogin--input{
+  background-color: white;
+  width: 100%;
+  padding: 8px;
+  color: #4D4D4D;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.160784);
+  outline: none;
+}
+</style>
