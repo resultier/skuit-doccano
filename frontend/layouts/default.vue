@@ -27,5 +27,6 @@ export default {
   
   .v-main{
     background-color: #D6F0F2;
+    font-family: "Poppins","sans-serif";
   }
 </style>
