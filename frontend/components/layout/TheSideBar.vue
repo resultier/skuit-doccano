@@ -1,19 +1,23 @@
 <template>
   <v-list dense>
-    <v-btn color="ms-4 my-1 mb-2 primary text-capitalize" nuxt @click="toLabeling">
-      <v-icon left>
-        {{ mdiPlayCircleOutline }}
-      </v-icon>
-      {{ $t('home.startAnnotation') }}
-    </v-btn>
+    <section class="text-center my-3">
+      <img src="~/assets/images/SKU-it-logo-white.png" class="my-3" />
+      <v-btn color="#739BF5" class="white--text my-1 mb-2 text-capitalize" nuxt @click="toLabeling">
+        <v-icon left>
+          {{ mdiPlayCircleOutline }}
+        </v-icon>
+        {{ $t('home.startAnnotation') }}
+      </v-btn>
+    </section>
+    
     <v-list-item-group v-model="selected" mandatory>
       <v-list-item
         v-for="(item, i) in filteredItems"
         :key="i"
         @click="$router.push(localePath(`/projects/${$route.params.id}/${item.link}`))"
       >
-        <v-list-item-action>
-          <v-icon>
+        <v-list-item-action >
+          <v-icon color="white">
             {{ item.icon }}
           </v-icon>
         </v-list-item-action>
@@ -32,11 +36,11 @@ import {
   mdiHome,
   mdiDatabase,
   mdiCog,
-  mdiChartBar,
+  // mdiChartBar,
   mdiBookOpenOutline,
-  mdiCommentAccountOutline,
+  // mdiCommentAccountOutline,
   mdiLabel,
-  mdiAccount,
+  // mdiAccount,
   mdiPlayCircleOutline
 } from '@mdi/js'
 
@@ -93,30 +97,30 @@ export default {
           link: 'links',
           isVisible: this.isProjectAdmin && this.project.canDefineRelation
         },
-        {
-          icon: mdiAccount,
-          text: this.$t('members.members'),
-          link: 'members',
-          isVisible: this.isProjectAdmin
-        },
-        {
-          icon: mdiCommentAccountOutline,
-          text: 'Comments',
-          link: 'comments',
-          isVisible: this.isProjectAdmin
-        },
+        // {
+        //   icon: mdiAccount,
+        //   text: this.$t('members.members'),
+        //   link: 'members',
+        //   isVisible: this.isProjectAdmin
+        // },
+        // {
+        //   icon: mdiCommentAccountOutline,
+        //   text: 'Comments',
+        //   link: 'comments',
+        //   isVisible: this.isProjectAdmin
+        // },
         {
           icon: mdiBookOpenOutline,
           text: this.$t('guideline.guideline'),
           link: 'guideline',
           isVisible: this.isProjectAdmin
         },
-        {
-          icon: mdiChartBar,
-          text: this.$t('statistics.statistics'),
-          link: 'metrics',
-          isVisible: this.isProjectAdmin
-        },
+        // {
+        //   icon: mdiChartBar,
+        //   text: this.$t('statistics.statistics'),
+        //   link: 'metrics',
+        //   isVisible: this.isProjectAdmin
+        // },
         {
           icon: mdiCog,
           text: this.$t('settings.title'),
@@ -139,3 +143,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-list-item__title{
+  color: white !important;
+}
+</style>

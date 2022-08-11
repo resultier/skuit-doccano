@@ -51,7 +51,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .v-main{
+    border-top: 4px solid #723857 !important;
+  }
+  .v-navigation-drawer{
+    border-top: 4px solid #723857 !important;
+  }
   @media (min-width: 1264px) {
     #btn-menu{
       display: none;
