@@ -60,7 +60,7 @@
     </v-btn>
 
     <section>
-      <button class="btn-logout mb-2">
+      <button class="btn-logout mb-2" @click="signout" >
          <v-icon color="#3B836F">{{ mdiLogout }}</v-icon> Logout
       </button>
       <v-card class="d-flex align-center profile">
