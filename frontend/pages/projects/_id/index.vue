@@ -66,3 +66,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-sheet{
+  box-shadow: unset !important;
+}
+.v-card__title{
+  color: #3B836F;
+  font-weight: 700;
+}
+</style>

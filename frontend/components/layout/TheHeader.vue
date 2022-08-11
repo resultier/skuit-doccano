@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app clipped-right>
+  <v-app-bar app clipped-right height="80">
     <slot name="leftDrawerIcon" />
     <nuxt-link v-if="!isAuthenticated" to="/" style="line-height: 0">
       <img src="~/assets/icon.png" height="48" />
@@ -59,8 +59,10 @@
       {{ $t('user.login') }}
     </v-btn>
 
-    <section class="">
-      <button class="btn-logout">Logout</button>
+    <section>
+      <button class="btn-logout mb-2">
+         <v-icon color="#3B836F">{{ mdiLogout }}</v-icon> Logout
+      </button>
       <v-card class="d-flex align-center profile">
         <section class="mr-2 profile--img" v-if="false">
           <img src="" alt="">
@@ -72,8 +74,8 @@
           class="mr-2"
         >A</v-avatar>
         <section class="d-flex flex-column profile--description">
-          <h4 class="text-bold decription--name">Admin</h4>
-          <small class="decription--role">admin</small>
+          <h4 class="text-bold text-left decription--name">Admin</h4>
+          <small class="text-left decription--role">admin</small>
         </section>
       </v-card>
     </section>
@@ -172,12 +174,16 @@ export default {
 .v-app-bar{
   background-color: white !important;
   box-shadow: unset !important;
-  height: 70px !important;
-   
+  border-top: 4px solid #723857;
 }
 .v-app-bar .btn-logout{
-  color: red;
-  font-size: 12px;
+  color: #3B836F;
+  font-size: 13px;
+  font-weight: 600;
+}
+.v-app-bar .btn-logout .v-icon{
+  height: 20px;
+  width: 20px;
 }
 .v-card.profile{
   width: 180px;
@@ -193,7 +199,7 @@ export default {
 @media (min-width: 1264px) {
   .v-app-bar{
     left: unset !important;
-    width: calc(100% - 256px - 12px) !important;
+    width: calc(100% - 256px) !important;
   }
 }
 </style>
