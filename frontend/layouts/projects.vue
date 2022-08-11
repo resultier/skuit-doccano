@@ -22,3 +22,12 @@ export default {
   }
 }
 </script>
+
+<style scoped> 
+.v-app-bar{
+  width: 100% !important;
+}
+.v-main{
+    background-color: #D6F0F2;
+}
+</style>

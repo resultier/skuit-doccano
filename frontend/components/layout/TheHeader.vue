@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app clipped-right height="80">
+  <v-app-bar app clipped-right height="80" class="p-2">
     <slot name="leftDrawerIcon" />
     <nuxt-link v-if="!isAuthenticated" to="/" style="line-height: 0">
       <img src="~/assets/icon.png" height="48" />
@@ -60,7 +60,7 @@
     </v-btn>
 
     <section>
-      <button class="btn-logout mb-2" @click="signout" >
+      <button class="btn-logout" @click="signout" >
          <v-icon color="#3B836F">{{ mdiLogout }}</v-icon> Logout
       </button>
       <v-card class="d-flex align-center profile">
@@ -178,7 +178,7 @@ export default {
 }
 .v-app-bar .btn-logout{
   color: #3B836F;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 .v-app-bar .btn-logout .v-icon{
