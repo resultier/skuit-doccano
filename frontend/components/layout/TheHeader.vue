@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app clipped-left>
+  <v-app-bar app clipped-right>
     <slot name="leftDrawerIcon" />
     <nuxt-link v-if="!isAuthenticated" to="/" style="line-height: 0">
       <img src="~/assets/icon.png" height="48" />
@@ -16,11 +16,18 @@
       <v-icon small class="mr-1">
         {{ mdiHexagonMultiple }}
       </v-icon>
-      <span> {{ currentProject.name }}</span>
+      <span> AI: {{ currentProject.name }}</span>
     </v-btn>
     <div class="flex-grow-1" />
+    <!-- Color switcher
     <the-color-mode-switcher />
+    -->
+
+    <!-- Language button
     <locale-menu />
+    -->
+
+    <!-- Projects button
     <v-btn
       v-if="isAuthenticated"
       text
@@ -29,6 +36,8 @@
     >
       {{ $t('header.projects') }}
     </v-btn>
+    -->
+
     <v-menu v-if="!isAuthenticated" open-on-hover offset-y>
       <template #activator="{ on }">
         <v-btn text v-on="on">
@@ -49,6 +58,27 @@
     <v-btn v-if="!isAuthenticated" outlined @click="$router.push(localePath('/auth'))">
       {{ $t('user.login') }}
     </v-btn>
+
+    <section class="">
+      <button class="btn-logout">Logout</button>
+      <v-card class="d-flex align-center profile">
+        <section class="mr-2 profile--img" v-if="false">
+          <img src="" alt="">
+        </section>
+        <v-avatar v-else
+          color="orange"
+          size="40"
+          tile
+          class="mr-2"
+        >A</v-avatar>
+        <section class="d-flex flex-column profile--description">
+          <h4 class="text-bold decription--name">Admin</h4>
+          <small class="decription--role">admin</small>
+        </section>
+      </v-card>
+    </section>
+    
+    <!-- 
     <v-menu v-if="isAuthenticated" offset-y>
       <template #activator="{ on }">
         <v-btn on icon v-on="on">
@@ -57,11 +87,13 @@
       </template>
       <v-list>
         <v-subheader>{{ getUsername }}</v-subheader>
-        <v-list-item>
+       
+       <v-list-item>
           <v-list-item-content>
             <v-switch :input-value="isRTL" :label="direction" class="ms-1" @change="toggleRTL" />
           </v-list-item-content>
         </v-list-item>
+       
         <v-list-item @click="signout">
           <v-list-item-icon>
             <v-icon>{{ mdiLogout }}</v-icon>
@@ -74,19 +106,20 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    -->
   </v-app-bar>
 </template>
 
 <script>
 import { mdiLogout, mdiDotsVertical, mdiMenuDown, mdiHexagonMultiple } from '@mdi/js'
 import { mapGetters, mapActions } from 'vuex'
-import TheColorModeSwitcher from './TheColorModeSwitcher'
-import LocaleMenu from './LocaleMenu'
+// import TheColorModeSwitcher from './TheColorModeSwitcher'
+// import LocaleMenu from './LocaleMenu'
 
 export default {
   components: {
-    TheColorModeSwitcher,
-    LocaleMenu
+    // TheColorModeSwitcher,
+    // LocaleMenu
   },
 
   data() {
@@ -134,3 +167,33 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-app-bar{
+  background-color: white !important;
+  box-shadow: unset !important;
+  height: 70px !important;
+   
+}
+.v-app-bar .btn-logout{
+  color: red;
+  font-size: 12px;
+}
+.v-card.profile{
+  width: 180px;
+  background-color: transparent !important;
+  box-shadow: unset !important;
+}
+.v-app-bar .v-card .profile--img{
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  border-radius: unset !important;
+}
+@media (min-width: 1264px) {
+  .v-app-bar{
+    left: unset !important;
+    width: calc(100% - 256px - 12px) !important;
+  }
+}
+</style>

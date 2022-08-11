@@ -27,3 +27,9 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="css">
+  .v-main{
+    background-color: #D6F0F2;
+  }
+</style>

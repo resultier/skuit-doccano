@@ -2,11 +2,11 @@
   <v-app>
     <the-header>
       <template #leftDrawerIcon>
-        <v-app-bar-nav-icon @click="drawerLeft = !drawerLeft" />
+        <v-app-bar-nav-icon @click="drawerLeft = !drawerLeft"  id="btn-menu"/>
       </template>
     </the-header>
 
-    <v-navigation-drawer v-model="drawerLeft" app clipped color="">
+    <v-navigation-drawer v-model="drawerLeft" app color="#3B836F">
       <the-side-bar :link="getLink" :is-project-admin="isProjectAdmin" :project="currentProject" />
     </v-navigation-drawer>
 
@@ -50,3 +50,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  @media (min-width: 1264px) {
+    #btn-menu{
+      display: none;
+    }
+  }
+</style>
