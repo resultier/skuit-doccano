@@ -14,6 +14,7 @@ export class ProjectDTO {
   tags: Object[] | string[]
   canDefineLabel: boolean
   canDefineRelation: boolean
+  canDefineCategory: boolean
   isTextProject: boolean
   allowOverlapping: boolean
   graphemeMode: boolean
@@ -30,12 +31,13 @@ export class ProjectDTO {
     this.projectType = item.projectType
     this.updatedAt = item.updatedAt
     this.enableRandomOrder = item.randomOrder
-    this.enableShareAnnotation = item.collaborative_annotation
+    this.enableShareAnnotation = item.collaborativeAnnotation
     this.singleClassClassification = item.exclusiveCategories
     this.pageLink = item.annotationPageLink
     this.tags = item.tags
     this.canDefineLabel = item.canDefineLabel
     this.canDefineRelation = item.canDefineRelation
+    this.canDefineCategory = item.canDefineCategory
     this.isTextProject = item.isTextProject
     this.allowOverlapping = item.allowOverlapping
     this.graphemeMode = item.graphemeMode

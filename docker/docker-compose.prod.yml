@@ -46,7 +46,7 @@ services:
       - network-backend
 
   rabbitmq:
-    image: rabbitmq:3.8-alpine
+    image: rabbitmq:3.10.7-alpine
     environment:
       RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
       RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
@@ -59,9 +59,18 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile.nginx
+    image: doccano_nginx:prod
+    command: >
+      /bin/sh -c
+      "envsubst '
+      $${WORKER_PROCESSES}
+      '< /etc/nginx/nginx.conf.template
+      > /etc/nginx/nginx.conf
+      && nginx -g 'daemon off;'"
     environment:
       API_URL: "http://backend:8000"
       GOOGLE_TRACKING_ID: ""
+      WORKER_PROCESSES: "auto"
     volumes:
       - static_volume:/static
       - media:/media
